@@ -40,7 +40,7 @@ const SearchBar = () => {
           <input
             type="text"
             className="block w-full flex-1 py-4 px-4 bg-light-fill dark:bg-dark-fill font-semibold"
-            placeholder="Search your favourite cryptocurrencies"
+            placeholder="Search by coin"
             id="search"
             value={coin}
             onChange={searchChangeHandler}

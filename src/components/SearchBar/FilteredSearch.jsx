@@ -21,7 +21,7 @@ const FilteredSearch = ({ coin, setIsOpen, setCoin }) => {
         dispatch(
           fetchAsyncHistoricData({
             id: coin,
-            currency: currency,
+            currency: symbol,
             days: days,
           })
         );

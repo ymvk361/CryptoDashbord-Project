@@ -37,13 +37,13 @@ const MultiCoinSelectionBtn = ({ coins }) => {
   useEffect(() => {
     dispatch(
       setSelectedCoins(
-        coins.filter((coin) => coin.name === "Bitcoin").map((coin) => coin.name)
+        coins.filter((coin) => coin.name === "Cryptocurrency").map((coin) => coin.name)
       )
     );
 
     dispatch(
       setCoinIDs(
-        coins.filter((coin) => coin.name === "Bitcoin").map((coin) => coin.id)
+        coins.filter((coin) => coin.name === "Cryptocurrency").map((coin) => coin.id)
       )
     );
   }, [coins]);
@@ -74,7 +74,7 @@ const MultiCoinSelectionBtn = ({ coins }) => {
         onClick={() => setIsOpen((prevState) => !prevState)}
       >
         <p>
-          {selectedCoins.length > 0 ? selectedCoins.join(", ") : "Select Coins"}
+          {selectedCoins.length > 0 ? selectedCoins.join(", ") : "Cryptocurrency"}
         </p>
         <span>
           <svg
