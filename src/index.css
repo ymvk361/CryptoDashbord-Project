@@ -28,11 +28,11 @@
     --color-text-light-base: #191919;
     --color-text-light-muted: #454545;
     --color-light-fill: #fff;
-    --color-fill-light-muted: #c7c7c7;
+    --color-fill-light-muted: #c8c8c8db;
     --color-light-button: #dedede;
     --color-button-light-hover: #c7c7c7;
-    --color-list-light-hover: #e84b4f;
-    --color-list-light-selected: #ed7377;
+    --color-list-light-hover: #7379ed;
+    --color-list-light-selected: #7379ed;
     --color-button-light-selected: #0476d0;
     --color-button-light-selected-hover: #088ffa;
 
@@ -43,8 +43,8 @@
     --color-fill-dark-muted: #171717;
     --color-dark-button: #454545;
     --color-button-dark-hover: #5c5c5c;
-    --color-list-dark-hover: #e84b4f;
-    --color-list-dark-selected: #ed7377;
+    --color-list-dark-hover: #7379ed;
+    --color-list-dark-selected: #7379ed;
     --color-button-dark-selected: #0476d0;
     --color-button-dark-selected-hover: #088ffa;
   }
