@@ -17,6 +17,7 @@ import { getRandomColor } from "../../common/miscelleneous/randomColor";
 // component imports
 import ButtonGroup from "./ButtonGroup";
 import ChartCanvas from "./ChartCanvas";
+import HorizontalBarChart from "./HorizontalBarChart";
 import ChartType from "./ChartType";
 import MultiCoinSelectionBtn from "./MultiCoinSelectionBtn";
 import { chartDays } from "./days";
@@ -169,7 +170,6 @@ const Charts = () => {
               <ChartType />
             </div>
           </div>
-
           <ChartCanvas data={data} options={options} />
         </div>
       )}

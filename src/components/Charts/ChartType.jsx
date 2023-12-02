@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setChartType } from "../../common/cryptoSlice/cryptoSlice";
 
 const ChartType = () => {
-  const charts = ["Line Chart", "Bar Chart"];
+  const charts = ["Line Chart", "Bar Chart", "Horizontal Bar Chart"];
 
   const [isOpen, setIsOpen] = useState(false);
 

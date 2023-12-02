@@ -3,6 +3,7 @@
 
 import React from "react";
 import { Bar, Line } from "react-chartjs-2";
+import HorizontalBarChart from "./HorizontalBarChart";
 
 import {
   BarElement,
@@ -38,12 +39,40 @@ const ChartCanvas = ({ data, options }) => {
         marginTop: "1rem",
       }}>
       {chartType === "Bar Chart" ? (
-        <Bar data={data} options={options} />
+      <Bar data={data} options={options} />
+      ) : chartType === "Line Chart" ? (
+      <Line data={data} options={options} /> 
       ) : (
-        <Line data={data} options={options} />
+      chartType === "Horizontal Bar Chart" ? (
+      <HorizontalBarChart data={data} options={options} />
+      ) : null // Add more conditions as needed
       )}
     </div>
   );
 };
+
+// const ChartCanvas = ({ data, options }) => {
+//   const chartType = useSelector((state) => state.globalStore.chartType);
+//   let chartToRender;
+
+//   if (chartType === 'Bar Chart') {
+//     chartToRender = <Bar data={data} options={options} />;
+//   } else if (chartType === 'Line Chart') {
+//     chartToRender = <Line data={data} options={options} />;
+//   } 
+
+//   return (
+//     <div
+//       style={{
+//         position: 'relative',
+//         width: '99%',
+//         height: '400px',
+//         marginTop: '1rem',
+//       }}
+//     >
+//       {chartToRender}
+//     </div>
+//   );
+// };
 
 export default ChartCanvas;
