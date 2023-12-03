@@ -29,6 +29,7 @@ const Charts = () => {
   const currency = useSelector((state) => state.globalStore.currency);
   const symbol = useSelector((state) => state.globalStore.symbol);
   const isCustomRange = useSelector((state) => state.globalStore.isCustomRange);
+  const chartType = useSelector((state) => state.globalStore.chartType);
 
   const coinIDs = useSelector((state) => state.globalStore.coinIDs);
 
@@ -92,6 +93,7 @@ const Charts = () => {
   };
 
   const options = {
+    indexAxis: chartType === "Horizontal Bar Chart" ? 'y' : 'x',
     interaction: {
       intersect: false,
       mode: "index",

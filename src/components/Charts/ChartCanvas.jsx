@@ -51,28 +51,5 @@ const ChartCanvas = ({ data, options }) => {
   );
 };
 
-// const ChartCanvas = ({ data, options }) => {
-//   const chartType = useSelector((state) => state.globalStore.chartType);
-//   let chartToRender;
-
-//   if (chartType === 'Bar Chart') {
-//     chartToRender = <Bar data={data} options={options} />;
-//   } else if (chartType === 'Line Chart') {
-//     chartToRender = <Line data={data} options={options} />;
-//   } 
-
-//   return (
-//     <div
-//       style={{
-//         position: 'relative',
-//         width: '99%',
-//         height: '400px',
-//         marginTop: '1rem',
-//       }}
-//     >
-//       {chartToRender}
-//     </div>
-//   );
-// };
 
 export default ChartCanvas;
