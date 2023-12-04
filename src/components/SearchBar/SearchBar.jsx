@@ -13,7 +13,7 @@ const SearchBar = () => {
   const coins = useSelector(getAllCoins);
 
   const [search, setSearch] = useState([]);
-  const [coin, setCoin] = useState("");
+  const [coin, setCoin] = useState(""); // Use this state for the input field value
   const [isOpen, setIsOpen] = useState(false);
 
   const submitHandler = (e) => {
@@ -25,24 +25,20 @@ const SearchBar = () => {
     const filteredArray = coins.filter((coin) =>
       coin?.name?.toLowerCase().includes(searchWord.toLowerCase())
     );
+    setCoin(searchWord); // Update the 'coin' state
     searchWord === "" ? setSearch([]) : setSearch(filteredArray);
   };
 
   return (
-    <div
-      className="relative 
-    ">
+    <div className="relative">
       <form onSubmit={submitHandler}>
-        <div
-          className={
-            "flex justify-between overflow-hidden border rounded-lg shadow-xl border-white dark:border-black"
-          }>
+        <div className={"flex justify-between overflow-hidden border rounded-lg shadow-xl border-white dark:border-black"}>
           <input
             type="text"
             className="block w-full flex-1 py-4 px-4 bg-light-fill dark:bg-dark-fill font-semibold"
-            placeholder="Search by coin"
+            placeholder="Search By Coin"
             id="search"
-            value={coin}
+            value={coin} // Use 'coin' state for the input field value
             onChange={searchChangeHandler}
             onClick={() => {
               setIsOpen(!isOpen);
@@ -51,11 +47,8 @@ const SearchBar = () => {
         </div>
       </form>
 
-      {search.length != 0 && (
-        <div
-          className={`absolute w-full z-20 flex flex-col border-2 border-black  overflow-hidden  shadow-xl bg-light-fill dark:bg-dark-fill rounded-lg  ${
-            isOpen ? "" : "hidden"
-          }`}>
+      {search.length !== 0 && (
+        <div className={`absolute w-full z-20 flex flex-col border-2 border-black overflow-hidden shadow-xl bg-light-fill dark:bg-dark-fill rounded-lg ${isOpen ? "" : "hidden"}`}>
           {search.slice(0, 3).map((coin) => (
             <FilteredSearch
               coin={coin}
@@ -70,4 +63,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default SearchBar; 
