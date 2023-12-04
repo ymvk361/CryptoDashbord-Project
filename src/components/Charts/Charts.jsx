@@ -92,6 +92,40 @@ const Charts = () => {
     datasets: datasets,
   };
 
+  const normalChartScale = {
+    y : {
+      ticks: {
+        // Include a selected currency symbol in the ticks
+        callback: function (value, index, ticks) {
+          return `${symbol}` + compactNumbers(value);
+        },
+        maxTicksLimit: 7,
+        grid: {
+          borderWidth: 2,
+          borderDash: [5, 5],
+          borderDashOffset: 2,
+        },
+      },
+    },
+  };
+
+  const horizontalBarChartScale = {
+    x : {
+      ticks: {
+        // Include a selected currency symbol in the ticks
+        callback: function (value, index, ticks) {
+          return `${symbol}` + compactNumbers(value);
+        },
+        maxTicksLimit: 7,
+        grid: {
+          borderWidth: 2,
+          borderDash: [5, 5],
+          borderDashOffset: 2,
+        },
+      },
+    },
+  };
+
   const options = {
     indexAxis: chartType === "Horizontal Bar Chart" ? 'y' : 'x',
     interaction: {
@@ -101,22 +135,8 @@ const Charts = () => {
     aspectRatio: 2,
     responsive: true,
     maintainAspectRatio: false,
-    scales: {
-      y: {
-        ticks: {
-          // Include a selected currency symbol in the ticks
-          callback: function (value, index, ticks) {
-            return `${symbol}` + compactNumbers(value);
-          },
-          maxTicksLimit: 7,
-          grid: {
-            borderWidth: 2,
-            borderDash: [5, 5],
-            borderDashOffset: 2,
-          },
-        },
-      },
-    },
+    
+    scales: chartType === "Horizontal Bar Chart" ? horizontalBarChartScale : normalChartScale,
     plugins: {
       tooltip: {
         callbacks: {
