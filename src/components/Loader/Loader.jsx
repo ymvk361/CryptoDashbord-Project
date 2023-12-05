@@ -1,8 +1,11 @@
 import React from "react";
 
+// Loader component displaying a spinning and filling box as a loading indicator
 const Loader = () => {
   return (
-    <div className="bg-slate-900 text-white min-h-screen flex justify-center items-center ">
+    // Container with background and text styles
+    <div className="bg-slate-900 text-white min-h-screen flex justify-center items-center">
+      {/* SVG element for the loader animation */}
       <svg
         className="w-32 h-32"
         version="1.1"
@@ -14,6 +17,7 @@ const Loader = () => {
         enableBackground="new 0 0 100 100"
         xmlSpace="preserve"
       >
+        {/* Border rectangle for the spinning effect */}
         <rect
           fill="none"
           stroke="#fff"
@@ -23,6 +27,7 @@ const Loader = () => {
           width="50"
           height="50"
         >
+          {/* Rotation animation for the border rectangle */}
           <animateTransform
             attributeName="transform"
             dur="0.5s"
@@ -34,7 +39,9 @@ const Loader = () => {
             begin="rectBox.end"
           />
         </rect>
+        {/* Filling rectangle for the filling effect */}
         <rect x="27" y="27" fill="#fff" width="46" height="50">
+          {/* Height reduction animation for the filling rectangle */}
           <animate
             attributeName="height"
             dur="1.3s"

@@ -1,5 +1,4 @@
-// labels to display in chart component and it's corresponding value in days.
-
+// Chart days configuration with labels and corresponding values in days
 export const chartDays = [
   {
     label: "1D",
@@ -23,4 +22,5 @@ export const chartDays = [
   },
 ];
 
+// Chart type options (Line Chart, Bar Chart)
 export const chartType = ["Line Chart", "Bar Chart"];

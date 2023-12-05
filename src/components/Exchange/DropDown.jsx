@@ -1,16 +1,21 @@
-import React from "react";
-import { Fragment, useState } from "react";
+// React and Redux imports
+import React, { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
 
+// Component for rendering a dropdown to select a coin
 const DropDown = ({ coins, setPrice, search }) => {
+  // State for input value, selected coin, and dropdown visibility
   const [inputValue, setInputValue] = useState("");
   const [selected, setSelected] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
+  // Redux dispatch for actions
   const dispatch = useDispatch();
 
+  // Render the component
   return (
     <Fragment>
+      {/* Button to toggle dropdown visibility */}
       <button
         className="col-span-3 bg-light-button dark:bg-dark-button hover:bg-light-button-hover dark:hover:bg-dark-button-hover font-semibold text-sm flex items-center
          justify-center shadow-lg"
@@ -32,6 +37,7 @@ const DropDown = ({ coins, setPrice, search }) => {
             xmlns="http://www.w3.org/2000/svg"
             className={`${isOpen ? "-rotate-180" : ""}`}
           >
+            {/* Arrow icon for indicating dropdown direction */}
             <path
               d="M6.1018 8C5.02785 8 4.45387 9.2649 5.16108 10.0731L10.6829 16.3838C11.3801 17.1806 12.6197 17.1806 13.3169 16.3838L18.8388 10.0731C19.5459 9.2649 18.972 8 17.898 8H6.1018Z"
               fill="#000"
@@ -40,6 +46,7 @@ const DropDown = ({ coins, setPrice, search }) => {
         </span>
       </button>
 
+      {/* Dropdown with search input and coin options */}
       <ul
         className={` absolute bg-light-fill dark:bg-dark-fill overflow-y-auto border z-10 border-black dark:border-white  ${
           isOpen ? "max-h-40" : "hidden"
@@ -47,6 +54,7 @@ const DropDown = ({ coins, setPrice, search }) => {
       >
         {search && (
           <div className="flex items-center px-2 min-w-min">
+            {/* Input field for searching coins */}
             <input
               type="text"
               value={inputValue}
@@ -57,6 +65,7 @@ const DropDown = ({ coins, setPrice, search }) => {
           </div>
         )}
 
+        {/* List of coin options */}
         {coins?.map((coin) => (
           <li
             key={coin?.name}
@@ -71,6 +80,7 @@ const DropDown = ({ coins, setPrice, search }) => {
               : "hidden"
           }`}
             onClick={() => {
+              // Set selected coin, close dropdown, reset input, and dispatch action
               if (coin?.name?.toLowerCase() !== selected.toLowerCase()) {
                 setSelected(coin?.name);
                 setIsOpen(false);
@@ -87,4 +97,5 @@ const DropDown = ({ coins, setPrice, search }) => {
   );
 };
 
+// Export the component
 export default DropDown;

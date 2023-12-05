@@ -1,14 +1,9 @@
-// Component renders the two dropdowns for selection of coins and an input filed for amount and a Exchange button.
-// validation is done if no coins is selected
-//  throws an error if the entered amount exceeds 2.
-
-// Library imports
+// React and Redux imports
 import React from "react";
-import { useState } from "react";
-import { Fragment } from "react";
+import { useState, Fragment } from "react";
 import { useSelector } from "react-redux";
 
-// Files imports
+// Custom function imports
 import { getAllCoins } from "../../common/cryptoSlice/coinsSlice";
 import { setPrice_s, setPrice_b } from "../../common/cryptoSlice/cryptoSlice";
 import { convertExchangeRates } from "../../common/miscelleneous/exchangeRate";
@@ -16,26 +11,30 @@ import { convertExchangeRates } from "../../common/miscelleneous/exchangeRate";
 // Component imports
 import DropDown from "./DropDown";
 
+// Exchange component for selecting coins, entering amount, and performing exchange
 const Exchange = () => {
+  // Redux state for available coins, sell and buy prices
   const coins = useSelector(getAllCoins);
   const [amount, setAmount] = useState("");
   const [exchangeResult, setExchangeResult] = useState("");
   const [error, setError] = useState(null);
 
+  // Sell and buy prices from Redux state
   const sellPrice = useSelector((state) => state.globalStore.price_s);
-
   const buyPrice = useSelector((state) => state.globalStore.price_b);
 
+  // Handle change in the input amount
   const handleChange = (e) => {
     const inputValue = e.target.value;
     if (inputValue > 2) {
-      setError("amount should be less than 2");
+      setError("Amount should be less than 2");
     } else {
       setError(null);
       setAmount(inputValue);
     }
   };
 
+  // Render the component
   return (
     <Fragment>
       <div className="flex items-center justify-between">
@@ -47,9 +46,11 @@ const Exchange = () => {
       <div className="grid grid-cols-6 gap-4 md:gap-2 items-center justify-center px-4 pb-4">
         <h3 className="col-span-1 text-red-500 font-semibold">Sell</h3>
         <div className="relative col-span-3">
+          {/* Dropdown for selecting coins to sell */}
           <DropDown coins={coins} setPrice={setPrice_s} search={true} />
         </div>
         <div className=" col-span-2 place-self-center flex-1 py-2 px-2 bg-light-fill dark:bg-dark-fill">
+          {/* Input for entering the amount to sell */}
           <input
             type="number"
             min={0.1}
@@ -59,6 +60,7 @@ const Exchange = () => {
             value={amount}
             onChange={handleChange}
           />
+          {/* Display error message if amount exceeds 2 */}
           {error && (
             <p className="place-self-center text-red-400 font-semibold text-sm">
               {error}
@@ -68,11 +70,10 @@ const Exchange = () => {
       </div>
       <div className="grid grid-cols-6 gap-4 md:gap-2 items-center px-4 pb-4">
         <h3 className="col-span-1 text-green-500 font-semibold">Buy</h3>
-
         <div className="relative col-span-3">
+          {/* Dropdown for selecting coins to buy */}
           <DropDown coins={coins} setPrice={setPrice_b} search={true} />
         </div>
-
         <p className="col-span-2 place-self-center text-red-400 font-semibold text-sm">
           {isNaN(exchangeResult)
             ? "Select currencies and enter the amount"
@@ -81,6 +82,7 @@ const Exchange = () => {
         </p>
       </div>
       <div className="flex items-center justify-center pb-2 pt-4">
+        {/* Button for performing the exchange */}
         <button
           className="bg-light-button-selected dark:bg-dark-button-selected hover:bg-light-button-selected-hover dark:hover:bg-dark-button-selected-hover font-semibold hover:text-white"
           onClick={() =>
@@ -100,4 +102,5 @@ const Exchange = () => {
   );
 };
 
+// Export the component
 export default Exchange;

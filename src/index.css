@@ -27,8 +27,8 @@
     /* light color thmes */
     --color-text-light-base: #191919;
     --color-text-light-muted: #454545;
-    --color-light-fill: #fff;
-    --color-fill-light-muted: #c8c8c8db;
+    --color-light-fill: #ffffff;
+    --color-fill-light-muted: #c0d0ff;
     --color-light-button: #dedede;
     --color-button-light-hover: #c7c7c7;
     --color-list-light-hover: #7379ed;
@@ -39,8 +39,8 @@
     /* dark color themes */
     --color-text-dark-base: #e8e8e8;
     --color-text-dark-muted: #bababa;
-    --color-dark-fill: #222222;
-    --color-fill-dark-muted: #171717;
+    --color-dark-fill: #381f3c;
+    --color-fill-dark-muted: #000000;
     --color-dark-button: #454545;
     --color-button-dark-hover: #5c5c5c;
     --color-list-dark-hover: #7379ed;

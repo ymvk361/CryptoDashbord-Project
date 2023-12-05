@@ -9,7 +9,7 @@ const initialState = {
   price_b: "0",
   price_symbol: "",
   days: 365,
-  chartType: "Line chart",
+  chartType: "Line Chart",
   selectedCoins: [],
   coinIDs: [],
   toDate: "",

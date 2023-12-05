@@ -1,10 +1,8 @@
-// component renders the charts based on selected coins from a drop and type of chart selected. It fetches the data based on date and custom date ranges selected from a calendar component.
-
-// Library imports
+// Library and file imports
 import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-// Files imports
+// Function imports for fetching, filtering, and styling data
 import {
   clearData,
   fetchAsyncHistoricData,
@@ -14,7 +12,7 @@ import { compactNumbers } from "../../common/miscelleneous/compactNumbers";
 import { filteredData } from "../../common/miscelleneous/filterData";
 import { getRandomColor } from "../../common/miscelleneous/randomColor";
 
-// component imports
+// Component imports
 import ButtonGroup from "./ButtonGroup";
 import ChartCanvas from "./ChartCanvas";
 import HorizontalBarChart from "./HorizontalBarChart";
@@ -22,47 +20,48 @@ import ChartType from "./ChartType";
 import MultiCoinSelectionBtn from "./MultiCoinSelectionBtn";
 import { chartDays } from "./days";
 
+// Main component for rendering charts based on selected coins, date ranges, and chart type
 const Charts = () => {
   const dispatch = useDispatch();
   const [days, setDays] = useState(1);
   const [selectedValue, setSelectedValue] = useState(null);
+
+  // Redux store state variables
   const currency = useSelector((state) => state.globalStore.currency);
   const symbol = useSelector((state) => state.globalStore.symbol);
   const isCustomRange = useSelector((state) => state.globalStore.isCustomRange);
   const chartType = useSelector((state) => state.globalStore.chartType);
-
   const coinIDs = useSelector((state) => state.globalStore.coinIDs);
-
   const marketCapData = useSelector((state) => state.market.data);
-
   const loading = useSelector((state) => state.market.loading);
 
+  // Function to fetch historical data based on selected parameters
   const fetchData = () => {
     coinIDs.forEach((id) => {
       dispatch(fetchAsyncHistoricData({ id, currency: currency, days: days }));
     });
   };
 
+  // Effect to fetch data when currency, coinIDs, or days change
   useEffect(() => {
     if (!isCustomRange) {
-      // Dispatch the action to fetch marketcap
       fetchData();
       dispatch(clearData());
     }
   }, [currency, coinIDs, days]);
 
-  useEffect(() => {}, []);
-
+  // Redux selector to get all available coins
   const coins = useSelector(getAllCoins);
 
+  // Filtered data for the selected coin
   const cdata = filteredData(marketCapData[coinIDs[0]]);
 
+  // Loading indicator
   if (loading) {
     return <div className="h-[260px] text-center p-4">Loading...</div>;
   }
 
-  // Labels: converts the data into proper dates format
-  // also returns time in hours if 1 day is selected else return days with dates
+  // Labels for the chart based on the selected date range
   const labels = cdata.map((data) => {
     let date = new Date(data[0]);
     let time =
@@ -74,7 +73,7 @@ const Charts = () => {
       : date.toLocaleDateString("en-US", { month: "long", day: "numeric" });
   });
 
-  // maps the datasets based on selected coins to display charts in a single canvas
+  // Datasets for the chart based on selected coins
   const datasets = Object.keys(marketCapData).map((id) => ({
     label: id,
     data: filteredData(marketCapData[id]).map((datum) => datum[1]),
@@ -87,15 +86,16 @@ const Charts = () => {
     hoverRadius: 5,
   }));
 
+  // Chart data object
   const data = {
     labels: labels,
     datasets: datasets,
   };
 
+  // Chart scale options for normal and horizontal bar charts
   const normalChartScale = {
-    y : {
+    y: {
       ticks: {
-        // Include a selected currency symbol in the ticks
         callback: function (value, index, ticks) {
           return `${symbol}` + compactNumbers(value);
         },
@@ -110,9 +110,8 @@ const Charts = () => {
   };
 
   const horizontalBarChartScale = {
-    x : {
+    x: {
       ticks: {
-        // Include a selected currency symbol in the ticks
         callback: function (value, index, ticks) {
           return `${symbol}` + compactNumbers(value);
         },
@@ -126,6 +125,7 @@ const Charts = () => {
     },
   };
 
+  // Chart options
   const options = {
     indexAxis: chartType === "Horizontal Bar Chart" ? 'y' : 'x',
     interaction: {
@@ -135,13 +135,11 @@ const Charts = () => {
     aspectRatio: 2,
     responsive: true,
     maintainAspectRatio: false,
-    
     scales: chartType === "Horizontal Bar Chart" ? horizontalBarChartScale : normalChartScale,
     plugins: {
       tooltip: {
         callbacks: {
           label: function (context) {
-            // formats the tooltip to show values of both charts in one tooltip
             let label = context.dataset.label || "";
             if (label) {
               label += ": ";
@@ -175,6 +173,7 @@ const Charts = () => {
     },
   };
 
+  // Render the component
   return (
     <Fragment>
       {marketCapData && (
@@ -186,7 +185,6 @@ const Charts = () => {
               setSelectedValue={setSelectedValue}
               selectedValue={selectedValue}
             />
-
             <div className=" flex gap-2 items-center justify-center flex-wrap">
               <MultiCoinSelectionBtn coins={coins} />
               <ChartType />
@@ -199,4 +197,5 @@ const Charts = () => {
   );
 };
 
+// Export the component
 export default Charts;
