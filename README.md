@@ -1,5 +1,4 @@
-Cryptocurrency Dashboard
-Overview
+# Cryptocurrency Dashboard Overview
 This project is a Cryptocurrency Dashboard built using ReactJS, Redux, TailwindCSS, and Chart.js. It provides a user-friendly interface to visualize and analyze cryptocurrency data fetched from the Coingecko API.
 
 Technologies Used
