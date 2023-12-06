@@ -34,7 +34,7 @@ const Charts = () => {
   const coinIDs = useSelector((state) => state.globalStore.coinIDs);
   const marketCapData = useSelector((state) => state.market.data);
   const loading = useSelector((state) => state.market.loading);
-
+console.log(marketCapData);
   // Function to fetch historical data based on selected parameters
   const fetchData = () => {
     coinIDs.forEach((id) => {
@@ -70,7 +70,7 @@ const Charts = () => {
         : `${date.getHours()} AM`;
     return days === 1
       ? time
-      : date.toLocaleDateString("en-US", { month: "long", day: "numeric" });
+      : date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
   });
 
   // Datasets for the chart based on selected coins
