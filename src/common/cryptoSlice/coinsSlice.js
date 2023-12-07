@@ -7,7 +7,7 @@ export const fetchAsyncCoins = createAsyncThunk(
   "coins/fetchAsyncCoins",
   async (term) => {
     const response = await Api.get(
-      `coins/markets?vs_currency=${term}&order=market_cap_desc&per_page=10&page=1&sparkline=false`
+      `coins/markets?vs_currency=${term}&order=market_cap_desc&per_page=20&page=1&sparkline=false`
     );
     return response.data;
   }

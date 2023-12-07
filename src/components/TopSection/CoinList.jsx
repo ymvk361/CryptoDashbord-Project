@@ -9,10 +9,10 @@ const CoinList = () => {
   return (
     <div className="pt-4 px-2  overflow-hidden">
       <div className="text-l mb-4 text-center font-semibold">
-        Cryptocurrencies by market cap
+        Cryptocurrencies By Market Cap
       </div>
       <div className="">
-        {coins?.slice(0, 10).map((coin) => (
+        {coins?.slice(0, 14).map((coin) => (
           <CoinCard coin={coin} key={coin.id} />
         ))}
       </div>

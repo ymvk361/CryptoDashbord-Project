@@ -34,7 +34,6 @@ const Charts = () => {
   const coinIDs = useSelector((state) => state.globalStore.coinIDs);
   const marketCapData = useSelector((state) => state.market.data);
   const loading = useSelector((state) => state.market.loading);
-console.log(marketCapData);
   // Function to fetch historical data based on selected parameters
   const fetchData = () => {
     coinIDs.forEach((id) => {
