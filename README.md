@@ -31,6 +31,12 @@ Use npm start to run the project in development mode. Open http://localhost:3000
 
 ### Feel free to contribute or open issues for any suggestions or improvements!
 
+![image](https://github.com/ymvk361/CryptoDashbord-Project/assets/130222257/25c42645-00cb-4618-9cdc-5c8b519996e9)
+
+![image](https://github.com/ymvk361/CryptoDashbord-Project/assets/130222257/816b9de4-aa6b-4842-8a82-3f605055ea18)
+
+-------------------------------------------------------------------------------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
