@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/CryptoDashbord-Project/static/css/main.f0780e4c.css",
+    "main.js": "/CryptoDashbord-Project/static/js/main.b54994f0.js",
+    "static/js/844.0356db3b.chunk.js": "/CryptoDashbord-Project/static/js/844.0356db3b.chunk.js",
+    "static/js/895.627bf624.chunk.js": "/CryptoDashbord-Project/static/js/895.627bf624.chunk.js",
+    "static/media/caret-up.svg": "/CryptoDashbord-Project/static/media/caret-up.4161edd01671108336a744b2a2258080.svg",
+    "index.html": "/CryptoDashbord-Project/index.html",
+    "static/media/caret-down.svg": "/CryptoDashbord-Project/static/media/caret-down.7b79aaa5dd7a6139fb08c675ba055136.svg",
+    "main.f0780e4c.css.map": "/CryptoDashbord-Project/static/css/main.f0780e4c.css.map",
+    "main.b54994f0.js.map": "/CryptoDashbord-Project/static/js/main.b54994f0.js.map",
+    "844.0356db3b.chunk.js.map": "/CryptoDashbord-Project/static/js/844.0356db3b.chunk.js.map",
+    "895.627bf624.chunk.js.map": "/CryptoDashbord-Project/static/js/895.627bf624.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f0780e4c.css",
+    "static/js/main.b54994f0.js"
+  ]
+}
