@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import CoinList from './components/TopSection/CoinList';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/header/i);
+test('Cryptocurrencies', () => {
+  render(<CoinList />);
+  const linkElement = screen.getByText(/Cryptocurrencies By Market Cap/i);
   expect(linkElement).toBeInTheDocument();
 });
