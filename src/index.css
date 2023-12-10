@@ -12,7 +12,7 @@
   }
 
   :root {
-    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
@@ -33,7 +33,7 @@
     --color-button-light-hover: #c7c7c7;
     --color-list-light-hover: #7379ed;
     --color-list-light-selected: #7379ed;
-    --color-button-light-selected: #0476d0;
+    --color-button-light-selected: #0095ac;
     --color-button-light-selected-hover: #088ffa;
 
     /* dark color themes */
@@ -45,7 +45,7 @@
     --color-button-dark-hover: #5c5c5c;
     --color-list-dark-hover: #7379ed;
     --color-list-dark-selected: #7379ed;
-    --color-button-dark-selected: #0476d0;
+    --color-button-dark-selected: #0095ac;
     --color-button-dark-selected-hover: #088ffa;
   }
 }
